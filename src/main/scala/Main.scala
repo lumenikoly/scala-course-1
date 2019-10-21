@@ -13,7 +13,7 @@ object Main extends App{
   println(s"$n-ое число Фибоначчи = ${fibList.take(n).last}")
 
     //Второй вариант решения
-    def fib(n: Int) : Long = {
+  def fib(n: Int) : Long = {
     var prev: Long = 1
     var next: Long = 1
     for (_ <- 3 to n) {
