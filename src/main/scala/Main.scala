@@ -11,8 +11,7 @@ object Main extends App{
     //Первый вариант решения
   val fibList: LazyList[Int] =  1 #:: fibList.scanLeft(1)(_ + _)
   println(s"$n-ое число Фибоначчи = ${fibList.take(n).last}")
-
-
+  
     //Второй вариант решения
   def fib(n: Int) : Long = {
     var prev: Long = 1
@@ -25,7 +24,6 @@ object Main extends App{
     next
   }
   println(s"$n-ое число Фибоначчи = ${fib(n)}")
-
 
   //Все перестановки и сочетания для заданного набора чисел
   val source = List("do", "did", "done")
