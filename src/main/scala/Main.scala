@@ -1,7 +1,7 @@
 import scala.io.Source
 
 object Main extends App{
-  var n = 20 //- заданное n
+  val n = 20 //- заданное n
 
   //Простые числа меньше заданного n
   println(s"Простые числа меньше $n: " +
@@ -26,7 +26,7 @@ object Main extends App{
   println(s"$n-ое число Фибоначчи = ${fib(n)}")
 
 
-  //Все перестановки и сочетания для заданного набора чисел
+  //Все перестановки и сочетания для заданного набора элементов
   val source = List("do", "did", "done")
   println("Перестановки: \n" + source.permutations.mkString("\n"))
   println("Комбинации: \n" + source.combinations(2).mkString("\n"))
