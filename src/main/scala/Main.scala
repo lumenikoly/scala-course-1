@@ -1,7 +1,7 @@
 import scala.io.Source
 
 object Main extends App{
-  var n = 20 //- заданное n
+  val n = 20 //заданное n
 
   //Простые числа меньше заданного n
   println(s"Простые числа меньше $n: " +
@@ -11,6 +11,7 @@ object Main extends App{
     //Первый вариант решения
   val fibList: LazyList[Int] =  1 #:: fibList.scanLeft(1)(_ + _)
   println(s"$n-ое число Фибоначчи = ${fibList.take(n).last}")
+
 
     //Второй вариант решения
   def fib(n: Int) : Long = {
@@ -33,11 +34,9 @@ object Main extends App{
 
   //Расчет остатков груза на складе
   val filename = ".\\src\\main\\resources\\cargo.txt"
-  var cargoInWarehouse = 0
   val file = Source.fromFile(filename)
-  file.getLines().toList.foreach(cargoInWarehouse+=_.toInt)
+  val cargoInWarehouse = file.getLines().toList.foldLeft(0)(_+_.toInt)
+  println(s"На складе сейчас ${cargoInWarehouse}")
   file.close()
-  println(s"На складе сейчас $cargoInWarehouse")
-
 
 }
