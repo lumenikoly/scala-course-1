@@ -8,7 +8,12 @@ object Main extends App{
     n.-(1).to(1,-1).toList.mkString(" "))
 
   //n-ное число Фибоначчи
-  def fib(n: Int) : Long = {
+    //Первый вариант решения
+  val lazyList: LazyList[Int] =  1 #:: lazyList.scanLeft(1)(_ + _)
+  println(s"$n-ое число Фибоначчи = ${lazyList.take(n).last}")
+
+    //Второй вариант решения
+    def fib(n: Int) : Long = {
     var prev: Long = 1
     var next: Long = 1
     for (_ <- 3 to n) {
@@ -19,6 +24,7 @@ object Main extends App{
     next
   }
   println(s"$n-ое число Фибоначчи = ${fib(n)}")
+
 
   //Все перестановки и сочетания для заданного набора чисел
   val source = List("do", "did", "done")
@@ -32,5 +38,6 @@ object Main extends App{
   file.getLines().toList.foreach(cargoInWarehouse+=_.toInt)
   file.close()
   println(s"На складе сейчас $cargoInWarehouse")
+
 
 }
