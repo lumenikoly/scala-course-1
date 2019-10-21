@@ -9,8 +9,8 @@ object Main extends App{
 
   //n-ное число Фибоначчи
     //Первый вариант решения
-  val lazyList: LazyList[Int] =  1 #:: lazyList.scanLeft(1)(_ + _)
-  println(s"$n-ое число Фибоначчи = ${lazyList.take(n).last}")
+  val fibList: LazyList[Int] =  1 #:: fibList.scanLeft(1)(_ + _)
+  println(s"$n-ое число Фибоначчи = ${fibList.take(n).last}")
 
     //Второй вариант решения
     def fib(n: Int) : Long = {
