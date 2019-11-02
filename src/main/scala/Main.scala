@@ -4,8 +4,12 @@ object Main extends App{
   val n = 20 //заданное n
 
   //Простые числа меньше заданного n
-  println(s"Простые числа меньше $n: " +
-    n.-(1).to(1,-1).toList.mkString(" "))
+  def filter(lazyList: LazyList[Int]) : LazyList[Int] = {
+    lazyList.head #:: filter(lazyList.tail.filter(_ % lazyList.head != 0))
+  }
+
+  val simpleNumber = filter(LazyList.from(2)).take(n).toList
+  println(s"Простые числа меньше $n : ${simpleNumber.mkString(" ")}")
 
   //n-ное число Фибоначчи
     //Первый вариант решения
